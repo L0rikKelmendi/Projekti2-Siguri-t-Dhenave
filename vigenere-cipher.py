@@ -16,3 +16,13 @@
         raise TypeError("Fara duhet të jetë ose një numër i plotë ose një varg")
     return keystream
 
+def vigenere_encrypt(plaintext, keystream):
+    ciphertext = []
+    for i, char in enumerate(plaintext):
+        key = keystream[i % len(keystream)]
+        encrypted_char = (char + key) % 256  # Use XOR instead of addition
+        ciphertext.append(encrypted_char)
+    return bytes(ciphertext)
+
+
+
