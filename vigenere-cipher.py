@@ -16,13 +16,23 @@
         raise TypeError("Fara duhet të jetë ose një numër i plotë ose një varg")
     return keystream
 
-def vigenere_encrypt(plaintext, keystream):
-    ciphertext = []
+# 2. Enkriptimi i plainteksitit, ku cdo karakter hyn vec e vec dhe iterohet ne fund me XOR per enkriptim me te sigurt.
+    def vigenere_encrypt(plaintext, keystream):
+        ciphertext = []
     for i, char in enumerate(plaintext):
         key = keystream[i % len(keystream)]
-        encrypted_char = (char + key) % 256  # Use XOR instead of addition
+        encrypted_char = (char + key) % 256  # Perdorimi i XOR.
         ciphertext.append(encrypted_char)
     return bytes(ciphertext)
+
+# 3. Dekriptimi i cipherteksit.
+    def vigenere_decrypt(ciphertext, keystream):
+        plaintext = []
+    for i, char in enumerate(ciphertext):
+        key =keystream[i% len(keystream)]
+        decrypted_char = (char-key) % 256  # Perdorim XOR edhe ne dekriptim pasi perdorem edhe gjat enkriptimit, ashtu qe te jete simetrik.
+        plaintext.append(decrypted_char)
+    return bytes(plaintext)
 
 
 
