@@ -34,5 +34,10 @@
         plaintext.append(decrypted_char)
     return bytes(plaintext)
 
+# Hyrja e përdoruesit për seed-in
+seed = input("Shkruaj integer seed ose string seed: ")
+
+# Hyrja e përdoruesit për plain tekstin
+plaintext = input("Shkruaj plain tekstin: ")
 
 
