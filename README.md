@@ -3,7 +3,7 @@
 .　　　•　° ★　•  ☄
 ▁▂▃▄▅▆▇▇▆▅▄▃▁▂▁▂▃▄▅▆▇▇▆▅▄▃▁▂
 ==================================================
-University of Prishtina " Hasan Prishtina '
+University of Prishtina " Hasan Prishtina '     
 Faculty of Electrical and Computer Engineering
 ===================================================
 
