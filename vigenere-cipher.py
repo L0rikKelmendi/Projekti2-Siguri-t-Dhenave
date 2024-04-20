@@ -34,19 +34,22 @@
         plaintext.append(decrypted_char)
     return bytes(plaintext)
 
-# Hyrja e përdoruesit për seed-in
+# 4. Hyrja e përdoruesit për seed-in
 seed = input("Shkruaj integer seed ose string seed: ")
 
-# Hyrja e përdoruesit për plain tekstin
+# 5. Hyrja e përdoruesit për plain tekstin
 plaintext = input("Shkruaj plain tekstin: ")
 
-#Konvertimi i  farës në numër të plotë nëse është e mundur
+# 6. Konvertimi i  farës në numër të plotë nëse është e mundur
 try:
     seed = int(seed)
 except ValueError:
 pass # Seed mbetet një varg nëse nuk mund të konvertohet në integer
 keystream = generate_keystream(seed, len(plaintext))
 
+# 7. Deklarojm variablat encrypted text dhe decrypted text, per ti pasur gati per printim.
+encrypted_text = vigenere_encrypt(plaintext.encode(), keystream)
+decrypted_text = vigenere_decrypt(encrypted_text, keystream)
 
 
 
