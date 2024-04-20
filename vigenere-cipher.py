@@ -40,4 +40,15 @@ seed = input("Shkruaj integer seed ose string seed: ")
 # Hyrja e përdoruesit për plain tekstin
 plaintext = input("Shkruaj plain tekstin: ")
 
+#Konvertimi i  farës në numër të plotë nëse është e mundur
+try:
+    seed = int(seed)
+except ValueError:
+pass # Seed mbetet një varg nëse nuk mund të konvertohet në integer
+keystream = generate_keystream(seed, len(plaintext))
+
+
+
+
+
 
