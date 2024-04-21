@@ -1,16 +1,15 @@
 # 1. Hapi pare - gjenerojme celesin nga keystream duke perdorur nje int32 ose string si seed.
-
-    def generate_keystream(seed, length):
+def generate_keystream(seed, length):
     if isinstance(seed, int):
         # Të zbatohet kufiri 32-bit në seed
         seed = seed % (2**32)
         import random
         random.seed(seed)
         keystream = [random.randint(0, 255) for _ in range(length)]
-        elif isinstance(seed, str):
+    elif isinstance(seed, str):
         
         keystream = [ord(char) for char in seed]
-          while len(keystream) < length:
+        while len(keystream) < length:
             keystream.extend([ord(char) for char in seed])
         keystream = keystream[:length]
     else:
@@ -19,7 +18,7 @@
 
 # 2. Enkriptimi i plainteksitit, ku cdo karakter hyn vec e vec dhe iterohet ne fund me XOR per enkriptim me te sigurt.
     def vigenere_encrypt(plaintext, keystream):
-        ciphertext = []
+    ciphertext = []
     for i, char in enumerate(plaintext):
         key = keystream[i % len(keystream)]
         encrypted_char = (char + key) % 256  # Perdorimi i XOR.
@@ -28,7 +27,7 @@
 
 # 3. Dekriptimi i cipherteksit.
     def vigenere_decrypt(ciphertext, keystream):
-        plaintext = []
+    plaintext = []
     for i, char in enumerate(ciphertext):
         key =keystream[i% len(keystream)]
         decrypted_char = (char-key) % 256  # Perdorim XOR edhe ne dekriptim pasi perdorem edhe gjat enkriptimit, ashtu qe te jete simetrik.
