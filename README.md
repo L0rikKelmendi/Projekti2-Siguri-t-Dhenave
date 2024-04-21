@@ -15,7 +15,10 @@ Contributors:
 * Pashtrik
 * Lorik
 
+Supervisor: 
 Prof. Blerim Rexha & Ass. Msc. Mergim Hoti
+
+
 
 Description:
 The Vigenere cipher is a method of encrypting alphabetic text by using a simple form of polyalphabetic substitution. A key, which is a word or phrase, is used to select which alphabet to use when encrypting each letter of the plaintext. Our implementation extends this concept by creating a keystream that can be as long as the plaintext message, ensuring a more secure encryption scheme. The keystream is generated algorithmically, providing a unique and non-repeating key for messages of any length.
