@@ -13,3 +13,20 @@ def generate_key(seed, length):
     elif isinstance(seed, str):
         key = [ord(char) - 65 for char in seed.upper()]
     return key
+
+def encrypt(plaintext, key):
+    ciphertext = ""
+    table = generate_vigenere_table()
+    for i in range(len(plaintext)):
+        if plaintext[i].isalpha():
+            key_index = i % len(key)
+            shift = key[key_index]
+            if plaintext[i].islower():
+                ciphertext += chr((ord(plaintext[i]) - 97 + shift) % 26 + 97)
+            else:
+                ciphertext += chr((ord(plaintext[i]) - 65 + shift) % 26 + 65)
+        else:
+            ciphertext += plaintext[i]
+    return ciphertext
+
+
