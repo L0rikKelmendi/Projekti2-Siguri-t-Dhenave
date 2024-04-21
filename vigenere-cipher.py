@@ -72,7 +72,7 @@ def main():
     elif choice == 'decrypt':
         ciphertext = input("Shkruaj ciphertext: ")
         seed = input("Shkruaj një numër të plotë ose një farë vargu: ")
-         key = generate_key(seed, len(ciphertext))
+        key = generate_key(seed, len(ciphertext))
         plaintext = decrypt(ciphertext, key)
         print("Plaintext:", plaintext)
     else:
@@ -80,5 +80,5 @@ def main():
 
 # Kjo linjë siguron që funksioni "main" thirret vetëm kur skripta ekzekutohet drejtpërdrejt,
 # dhe jo kur importohet si modul.
-if name == "main":
+if __name__ == "__main__":
     main()
