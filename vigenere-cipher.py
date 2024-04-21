@@ -57,3 +57,28 @@ def decrypt(ciphertext, key):
         else:
             plaintext += ciphertext[i] # Shkruaj karakteret jo alfabetike ashtu siç janë
     return plaintext
+
+# Ky funksion është pika kryesore hyrëse e programit.
+# Ai pyet përdoruesin nëse dëshiron të kodojë ose deshifrojë një mesazh, dhe më pas kërkon hyrjet e duhura (tekst i thjeshtë ose i shifruar dhe një vlerë fillestare).
+# Gjeneron një çelës bazuar në seed, dhe më pas thërret funksionin e duhur (`encrypt` ose `decrypt`) për të përpunuar mesazhin.
+def main():
+    choice = input("Shkruaj 'encrypt' për të enkriptuar ose 'decrypt' për të deshifruar: ").lower()
+    if choice == 'encrypt':
+        plaintext = input("Shkruaj plaintext: ")
+        seed = input("Shkruaj një numër të plotë ose një farë vargu: ")
+        key = generate_key(seed, len(plaintext))
+        ciphertext = encrypt(plaintext, key)
+        print("Ciphertext:", ciphertext)
+    elif choice == 'decrypt':
+        ciphertext = input("Shkruaj ciphertext: ")
+        seed = input("Shkruaj një numër të plotë ose një farë vargu: ")
+         key = generate_key(seed, len(ciphertext))
+        plaintext = decrypt(ciphertext, key)
+        print("Plaintext:", plaintext)
+    else:
+        print("Zgjedhje e pavlefshme.")
+
+# Kjo linjë siguron që funksioni "main" thirret vetëm kur skripta ekzekutohet drejtpërdrejt,
+# dhe jo kur importohet si modul.
+if name == "main":
+    main()
