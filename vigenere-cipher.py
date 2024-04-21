@@ -8,7 +8,7 @@ def generate_keystream(seed, length):
         keystream = [random.randint(0, 255) for _ in range(length)]
     elif isinstance(seed, str):
         
-        keystream = [ord(char) for char in seed]
+        keystream = ([ord(char) for char in seed])
         while len(keystream) < length:
             keystream.extend([ord(char) for char in seed])
         keystream = keystream[:length]
